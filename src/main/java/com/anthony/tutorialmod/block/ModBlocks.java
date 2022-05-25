@@ -1,6 +1,7 @@
 package com.anthony.tutorialmod.block;
 
 import com.anthony.tutorialmod.TutorialMod;
+import com.anthony.tutorialmod.block.custom.SpeedyBlock;
 import com.anthony.tutorialmod.item.ModCreativeModeTab;
 import com.anthony.tutorialmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -45,7 +46,7 @@ public class ModBlocks {
                     .strength(3f).requiresCorrectToolForDrops()), ModCreativeModeTab.TUTORIAL_TAB);
 
     public static final RegistryObject<Block> SPEEDY_BLOCK = registerBlock("speedy_block",
-            ()-> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            ()-> new SpeedyBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(3f).requiresCorrectToolForDrops()), ModCreativeModeTab.TUTORIAL_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab){
