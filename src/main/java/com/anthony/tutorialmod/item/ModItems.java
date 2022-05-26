@@ -3,6 +3,7 @@ package com.anthony.tutorialmod.item;
 import com.anthony.tutorialmod.TutorialMod;
 import com.anthony.tutorialmod.block.custom.CoalCokeItem;
 import com.anthony.tutorialmod.block.custom.LevitationSwordItem;
+import com.anthony.tutorialmod.block.custom.ModArmorItem;
 import com.anthony.tutorialmod.item.custom.DowsingRodItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
@@ -55,9 +56,9 @@ public class ModItems { // a list of my items that i am creating
     public  static  final RegistryObject<Item> CITRINE_HOE = ITEMS.register("citrine_hoe", //coal coke is the custom item
             () -> new HoeItem(ModTiers.CITRINE, 2,3f,
                     new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
-    //armor helm
+    //armor
     public  static  final RegistryObject<Item> CITRINE_HELMET = ITEMS.register("citrine_helmet", //coal coke is the custom item
-            () -> new ArmorItem(ModArmorMaterials.CITRINE, EquipmentSlot.HEAD,
+            () -> new ModArmorItem(ModArmorMaterials.CITRINE, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
 
     public  static  final RegistryObject<Item> CITRINE_CHESTPLATE = ITEMS.register("citrine_chestplate", //coal coke is the custom item
