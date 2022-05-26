@@ -1,14 +1,23 @@
 package com.anthony.tutorialmod.item.custom;
 
+import com.anthony.tutorialmod.util.ModTags;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class DowsingRodItem extends Item {
     public DowsingRodItem(Properties pProperties) {
@@ -45,6 +54,15 @@ public class DowsingRodItem extends Item {
         return super.useOn(pContext);
     }
 
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        if(Screen.hasAltDown())
+        {
+            pTooltipComponents.add(new TranslatableComponent("tooltip.tutorialmod.dowsing_rod.tooltip.shift")); //translation key
+        }else{
+            pTooltipComponents.add(new TranslatableComponent("tooltip.tutorialmod.dowsing_rod.tooltip")); //translation key
+        }
+    }
 
     private void outputValuableCoordinates(BlockPos blockPos, Player player, Block blockBelow) { // sends blocks coordenates through the player
         player.sendMessage(new TextComponent("Found " + blockBelow.asItem().getRegistryName().toString() + " at " +
@@ -52,7 +70,6 @@ public class DowsingRodItem extends Item {
     }
 
     private boolean isValuableBlock(Block block) { //checks if a block we are passing in is valuable
-        return block == Blocks.COAL_ORE || block == Blocks.COPPER_ORE // valuable ores
-                || block == Blocks.DIAMOND_ORE || block == Blocks.IRON_ORE;
+        return ModTags.Blocks.DOWSING_ROD_VALUABLES.contains(block);
     }
 }
