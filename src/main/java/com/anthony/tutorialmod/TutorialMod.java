@@ -2,6 +2,8 @@ package com.anthony.tutorialmod;
 
 import com.anthony.tutorialmod.block.ModBlocks;
 import com.anthony.tutorialmod.item.ModItems;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -34,11 +36,16 @@ public class TutorialMod
         ModItems.register(eventBus); // registering mod items deferred register
         ModBlocks.register(eventBus);
         eventBus.addListener(this::setup);
+        eventBus.addListener(this::clientSetup);
 
 
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+    }
+    private void clientSetup(final FMLCommonSetupEvent event){
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.EBONY_DOOR.get(), RenderType.translucent()); //translucent isnt always neccessary. you want to use cutout typically. this door has pixels that are 50% oppasity
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.EBONY_TRAPDOOR.get(), RenderType.translucent());
     }
 
     private void setup(final FMLCommonSetupEvent event)
