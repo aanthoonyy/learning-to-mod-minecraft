@@ -2,9 +2,10 @@ package com.anthony.tutorialmod.item;
 
 import com.anthony.tutorialmod.TutorialMod;
 import com.anthony.tutorialmod.block.custom.CoalCokeItem;
+import com.anthony.tutorialmod.block.custom.LevitationSwordItem;
 import com.anthony.tutorialmod.item.custom.DowsingRodItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -34,6 +35,44 @@ public class ModItems { // a list of my items that i am creating
     //coalcoke
     public  static  final RegistryObject<Item> COAL_COKE = ITEMS.register("coal_coke", //coal coke is the custom item
             () -> new CoalCokeItem(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+    // citrine sword
+    public  static  final RegistryObject<Item> CITRINE_SWORD = ITEMS.register("citrine_sword", //coal coke is the custom item
+            () -> new LevitationSwordItem(ModTiers.CITRINE, 2,3f,
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+    //pickaxe
+    public  static  final RegistryObject<Item> CITRINE_PICKAXE = ITEMS.register("citrine_pickaxe", //coal coke is the custom item
+            () -> new PickaxeItem(ModTiers.CITRINE, 2,3f,
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+    //shovel
+    public  static  final RegistryObject<Item> CITRINE_SHOVEL = ITEMS.register("citrine_shovel", //coal coke is the custom item
+            () -> new ShovelItem(ModTiers.CITRINE, 2,3f,
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+    // axe
+    public  static  final RegistryObject<Item> CITRINE_AXE = ITEMS.register("citrine_axe", //coal coke is the custom item
+            () -> new AxeItem(ModTiers.CITRINE, 2,3f,
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+    // hoe
+    public  static  final RegistryObject<Item> CITRINE_HOE = ITEMS.register("citrine_hoe", //coal coke is the custom item
+            () -> new HoeItem(ModTiers.CITRINE, 2,3f,
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+    //armor helm
+    public  static  final RegistryObject<Item> CITRINE_HELMET = ITEMS.register("citrine_helmet", //coal coke is the custom item
+            () -> new ArmorItem(ModArmorMaterials.CITRINE, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+
+    public  static  final RegistryObject<Item> CITRINE_CHESTPLATE = ITEMS.register("citrine_chestplate", //coal coke is the custom item
+            () -> new ArmorItem(ModArmorMaterials.CITRINE, EquipmentSlot.CHEST,
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+
+    public  static  final RegistryObject<Item> CITRINE_LEGGING = ITEMS.register("citrine_leggings", //coal coke is the custom item
+            () -> new ArmorItem(ModArmorMaterials.CITRINE, EquipmentSlot.LEGS,
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+
+    public  static  final RegistryObject<Item> CITRINE_BOOTS = ITEMS.register("citrine_boots", //coal coke is the custom item
+            () -> new ArmorItem(ModArmorMaterials.CITRINE, EquipmentSlot.FEET,
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+
+
 
 
     public static void register(IEventBus eventBus){
