@@ -15,6 +15,7 @@
   "item.tutorialmod.citrine_chestplate": "Citrine Chestplate",
   "item.tutorialmod.citrine_leggings": "Citrine Leggings",
   "item.tutorialmod.citrine_boots": "Citrine Boots",
+  "item.tutorialmod.magic_dust": "Magic Dust",
 
   "block.tutorialmod.citrine_block": "Citrine Block",
   "block.tutorialmod.raw_citrine_block": "Raw Citrine Block",
@@ -37,6 +38,8 @@
 
   "block.tutorialmod.pink_rose": "Pink Rose",
   "block.tutorialmod.potted_pink_rose": "Potted Pink Rose",
+
+  "block.tutorialmod.winter_window": "Winter Window",
 
   "itemGroup.tutorialtab": "Tutorial Mod",
 
