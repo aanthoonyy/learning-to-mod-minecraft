@@ -1,6 +1,7 @@
 package com.anthony.tutorialmod.block;
 
 import com.anthony.tutorialmod.TutorialMod;
+import com.anthony.tutorialmod.block.custom.CitrineLampBlock;
 import com.anthony.tutorialmod.block.custom.SpeedyBlock;
 import com.anthony.tutorialmod.item.ModCreativeModeTab;
 import com.anthony.tutorialmod.item.ModItems;
@@ -101,6 +102,11 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> WINTER_WINDOW = registerBlock("winter_window",
             ()-> new GlassBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> CITRINE_LAMP = registerBlock("citrine_lamp",
+            ()-> new CitrineLampBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(2f).requiresCorrectToolForDrops().lightLevel(
+                    (state) -> state.getValue(CitrineLampBlock.CLICKED) ? 15 : 0)),
+        ModCreativeModeTab.TUTORIAL_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlockWithOutBlockItem(String name, Supplier<T> block){ //registerying the block
         return BLOCKS.register(name, block);
