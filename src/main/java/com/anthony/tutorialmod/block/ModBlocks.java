@@ -6,6 +6,7 @@ import com.anthony.tutorialmod.item.ModCreativeModeTab;
 import com.anthony.tutorialmod.item.ModItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -89,6 +90,19 @@ public class ModBlocks {
     public static final RegistryObject<Block> EBONY_TRAPDOOR = registerBlock("ebony_trapdoor",
             ()-> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(3f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> PINK_ROSE = registerBlock("pink_rose",
+            ()-> new FlowerBlock(MobEffects.LEVITATION,8,
+                    BlockBehaviour.Properties.copy(Blocks.DANDELION).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> POTTED_PINK_ROSE = registerBlockWithOutBlockItem("potted_pink_rose",
+            ()-> new FlowerPotBlock(null,ModBlocks.PINK_ROSE,
+                    BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).noOcclusion()));
+
+    private static <T extends Block> RegistryObject<T> registerBlockWithOutBlockItem(String name, Supplier<T> block){ //registerying the block
+        return BLOCKS.register(name, block);
+
+    }
 
 //
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block,
