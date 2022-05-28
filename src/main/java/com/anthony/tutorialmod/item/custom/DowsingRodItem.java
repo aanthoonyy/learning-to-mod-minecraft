@@ -1,8 +1,11 @@
 package com.anthony.tutorialmod.item.custom;
 
+import com.anthony.tutorialmod.item.ModItems;
+import com.anthony.tutorialmod.util.InventoryUtil;
 import com.anthony.tutorialmod.util.ModTags;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -38,7 +41,12 @@ public class DowsingRodItem extends Item {
                 if(isValuableBlock(blockBelow)) { //checking if it is valuable
                     outputValuableCoordinates(positionClicked.below(i), player, blockBelow); // if it is valuable we output the coords here
                     foundBlock = true; //set foundblock = true
-                    break; //break out the loop
+
+
+                    if(InventoryUtil.hasPlayerStackInInventory(player, ModItems.DATA_TABLET.get())) {
+                        addNbtToDataTablet(player, positionClicked.below(i), blockBelow);
+                    }
+                    break;
                 }
             }
 
@@ -52,6 +60,17 @@ public class DowsingRodItem extends Item {
                 (player) -> player.broadcastBreakEvent(player.getUsedItemHand()));
 
         return super.useOn(pContext);
+    }
+
+    private void addNbtToDataTablet(Player player, BlockPos pos, Block blockBelow) {
+        ItemStack dataTablet =
+                player.getInventory().getItem(InventoryUtil.getFirstInventoryIndex(player, ModItems.DATA_TABLET.get()));
+
+        CompoundTag nbtData = new CompoundTag();
+        nbtData.putString("tutorialmod.last_ore", "Found " + blockBelow.asItem().getRegistryName().toString() + " at (" +
+                pos.getX() + ", "+ pos.getY() + ", "+ pos.getZ() + ")");
+
+        dataTablet.setTag(nbtData);
     }
 
     @Override

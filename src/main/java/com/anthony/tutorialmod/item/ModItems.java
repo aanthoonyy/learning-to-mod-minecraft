@@ -2,6 +2,7 @@ package com.anthony.tutorialmod.item;
 
 import com.anthony.tutorialmod.TutorialMod;
 import com.anthony.tutorialmod.block.custom.CoalCokeItem;
+import com.anthony.tutorialmod.block.custom.DataTabletItem;
 import com.anthony.tutorialmod.block.custom.LevitationSwordItem;
 import com.anthony.tutorialmod.block.custom.ModArmorItem;
 import com.anthony.tutorialmod.item.custom.DowsingRodItem;
@@ -72,10 +73,12 @@ public class ModItems { // a list of my items that i am creating
     public  static  final RegistryObject<Item> CITRINE_BOOTS = ITEMS.register("citrine_boots", //coal coke is the custom item
             () -> new ArmorItem(ModArmorMaterials.CITRINE, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
-
+    //magic dust
     public  static  final RegistryObject<Item> MAGIC_DUST = ITEMS.register("magic_dust",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
-
+    //data tablet
+    public  static  final RegistryObject<Item> DATA_TABLET = ITEMS.register("data_tablet",
+            () -> new DataTabletItem(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB).stacksTo(1)));
 
 
     public static void register(IEventBus eventBus){
