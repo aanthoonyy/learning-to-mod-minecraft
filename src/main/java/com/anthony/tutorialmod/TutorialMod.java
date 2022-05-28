@@ -2,6 +2,7 @@ package com.anthony.tutorialmod;
 
 import com.anthony.tutorialmod.block.ModBlocks;
 import com.anthony.tutorialmod.item.ModItems;
+import com.anthony.tutorialmod.painting.ModPaintings;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
@@ -36,6 +37,9 @@ public class TutorialMod
 
         ModItems.register(eventBus); // registering mod items deferred register
         ModBlocks.register(eventBus);
+
+        ModPaintings.register(eventBus);
+
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
 
