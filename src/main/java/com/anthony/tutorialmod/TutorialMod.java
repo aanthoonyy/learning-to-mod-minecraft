@@ -3,6 +3,7 @@ package com.anthony.tutorialmod;
 import com.anthony.tutorialmod.block.ModBlocks;
 import com.anthony.tutorialmod.item.ModItems;
 import com.anthony.tutorialmod.painting.ModPaintings;
+import com.anthony.tutorialmod.util.ModItemProperties;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
@@ -56,6 +57,8 @@ public class TutorialMod
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_PINK_ROSE.get(), RenderType.cutout());
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WINTER_WINDOW.get(), RenderType.translucent());
+
+        ModItemProperties.addCustomItemProperties();
     }
 
     private void setup(final FMLCommonSetupEvent event)
