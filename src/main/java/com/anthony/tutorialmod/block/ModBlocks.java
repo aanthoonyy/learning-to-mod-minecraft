@@ -6,6 +6,7 @@ import com.anthony.tutorialmod.block.custom.CucumberPlantBlock;
 import com.anthony.tutorialmod.block.custom.SpeedyBlock;
 import com.anthony.tutorialmod.item.ModCreativeModeTab;
 import com.anthony.tutorialmod.item.ModItems;
+import com.anthony.tutorialmod.sound.ModSounds;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.effect.MobEffects;
@@ -106,7 +107,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> CITRINE_LAMP = registerBlock("citrine_lamp",
             ()-> new CitrineLampBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(2f).requiresCorrectToolForDrops().lightLevel(
-                    (state) -> state.getValue(CitrineLampBlock.CLICKED) ? 15 : 0)),
+                    (state) -> state.getValue(CitrineLampBlock.CLICKED) ? 15 : 0)
+                    .sound(ModSounds.CITRINE_LAMP_SOUNDS)),
         ModCreativeModeTab.TUTORIAL_TAB);
 
 
