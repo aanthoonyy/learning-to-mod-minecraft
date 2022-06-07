@@ -7,6 +7,7 @@ import com.anthony.tutorialmod.block.custom.DataTabletItem;
 import com.anthony.tutorialmod.block.custom.LevitationSwordItem;
 import com.anthony.tutorialmod.block.custom.ModArmorItem;
 import com.anthony.tutorialmod.item.custom.DowsingRodItem;
+import com.anthony.tutorialmod.sound.ModSounds;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -83,6 +84,10 @@ public class ModItems { // a list of my items that i am creating
     //kaupenbow
     public  static  final RegistryObject<Item> KAUPENBOW = ITEMS.register("kaupenbow",
             () -> new BowItem(new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB).durability(500)));
+    //record
+    public  static  final RegistryObject<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.register("bar_brawl_music_disc",
+            () -> new RecordItem(4, ModSounds.BAR_BRAWL,
+                    new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB).stacksTo(1)));
     //cucumber seeds
     public static final RegistryObject<Item> CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds",
             () -> new ItemNameBlockItem(ModBlocks.CUCUMBER_PLANT.get(),
