@@ -1,5 +1,6 @@
 package com.anthony.tutorialmod.world;
 import com.anthony.tutorialmod.TutorialMod;
+import com.anthony.tutorialmod.world.gen.ModFlowerGeneration;
 import com.anthony.tutorialmod.world.gen.ModTreeGeneration;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -10,5 +11,7 @@ public class ModWorldEvents {
     @SubscribeEvent
     public static void biomeLoadingEvent(final BiomeLoadingEvent event) {
         ModTreeGeneration.generateTrees(event);
+        ModFlowerGeneration.generateFlowers(event);
     }
+
 }
