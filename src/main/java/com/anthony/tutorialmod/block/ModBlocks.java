@@ -8,6 +8,7 @@ import com.anthony.tutorialmod.block.custom.SpeedyBlock;
 import com.anthony.tutorialmod.item.ModCreativeModeTab;
 import com.anthony.tutorialmod.item.ModItems;
 import com.anthony.tutorialmod.sound.ModSounds;
+import com.anthony.tutorialmod.world.feature.tree.EbonyTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -105,7 +106,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> POTTED_PINK_ROSE = registerBlockWithOutBlockItem("potted_pink_rose",
             ()-> new FlowerPotBlock(null,ModBlocks.PINK_ROSE,
-                    BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).noOcclusion()));
+                    BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
 
     public static final RegistryObject<Block> WINTER_WINDOW = registerBlock("winter_window",
             ()-> new GlassBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
@@ -118,7 +119,7 @@ public class ModBlocks {
 
 
     public static final RegistryObject<Block> CUCUMBER_PLANT = registerBlockWithOutBlockItem("cucumber_plant",
-            () -> new CucumberPlantBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
+            () -> new CucumberPlantBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
 
 
     //custom wood
@@ -133,6 +134,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> STRIPPED_EBONY_WOOD = registerBlock("stripped_ebony_wood",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> EBONY_SAPLING = registerBlock("ebony_sapling",
+            () -> new SaplingBlock(new EbonyTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), ModCreativeModeTab.TUTORIAL_TAB);
 
     public static final RegistryObject<Block> EBONY_PLANKS = registerBlock("ebony_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
@@ -152,9 +156,28 @@ public class ModBlocks {
                 }
             }, ModCreativeModeTab.TUTORIAL_TAB);
 
+    public static final RegistryObject<Block> EBONY_LEAVES = registerBlock("ebony_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                    return 30;
+                }
+            }, ModCreativeModeTab.TUTORIAL_TAB);
 
 
-    private static <T extends Block> RegistryObject<T> registerBlockWithOutBlockItem(String name, Supplier<T> block){ //registerying the block
+
+
+    private static <T extends Block> RegistryObject<T> registerBlockWithOutBlockItem(String name, Supplier<T> block, CreativeModeTab tutorialTab){ //registerying the block
         return BLOCKS.register(name, block);
 
     }
