@@ -66,5 +66,6 @@
   "tooltip.tutorialmod.dowsing_rod.tooltip":"Press §eSHIFT§r for more Information!",
   "tooltop.tutorialmod.block.speedy_block": "I am speed!",
 
-  "sounds.tutorialmod.dowsing_rod_found_ore": "Dowsing Rod Found Item Sound"
+  "sounds.tutorialmod.dowsing_rod_found_ore": "Dowsing Rod Found Item Sound",
+  "effect.tutorialmod.freeze": "Freeze"
 }
