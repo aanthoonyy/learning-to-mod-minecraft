@@ -6,12 +6,16 @@ import com.anthony.tutorialmod.item.ModItems;
 import com.anthony.tutorialmod.painting.ModPaintings;
 import com.anthony.tutorialmod.potion.ModPotions;
 import com.anthony.tutorialmod.sound.ModSounds;
+import com.anthony.tutorialmod.util.BetterBrewingRecipe;
 import com.anthony.tutorialmod.util.ModItemProperties;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipe;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -68,6 +72,10 @@ public class TutorialMod
     {
         event.enqueueWork(()->{
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.PINK_ROSE.getId(), ModBlocks.POTTED_PINK_ROSE);
+
+
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
+                    ModItems.CITRINE.get(), ModPotions.FREEZE_POTION.get()));
         });
     }
 

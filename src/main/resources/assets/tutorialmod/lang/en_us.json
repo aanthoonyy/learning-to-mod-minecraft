@@ -33,6 +33,7 @@
   "item.minecraft.potion.effect.freeze_potion": "Freeze Potion",
   "item.minecraft.splash_potion.effect.freeze_potion": "Splash Potion of Freeze",
   "item.minecraft.lingering_potion.effect.freeze_potion": "Lingering Potion of Freeze",
+  "item.minecraft.tipped_arrow.effect.freeze_potion": "Arrow of Freeze",
   "effect.tutorialmod.freeze": "Freeze",
 
   "item.tutorialmod.bar_brawl_music_disc": "Bar Brawl Music Disc",
