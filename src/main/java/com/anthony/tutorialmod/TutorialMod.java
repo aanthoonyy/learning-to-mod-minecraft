@@ -4,6 +4,7 @@ import com.anthony.tutorialmod.effect.ModEffects;
 import com.anthony.tutorialmod.block.ModBlocks;
 import com.anthony.tutorialmod.item.ModItems;
 import com.anthony.tutorialmod.painting.ModPaintings;
+import com.anthony.tutorialmod.potion.ModPotions;
 import com.anthony.tutorialmod.sound.ModSounds;
 import com.anthony.tutorialmod.util.ModItemProperties;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -36,6 +37,7 @@ public class TutorialMod
         ModSounds.register(eventBus);
 
         ModEffects.register(eventBus);
+        ModPotions.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
